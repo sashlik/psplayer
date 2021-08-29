@@ -35,7 +35,7 @@ import ru.hilariousstartups.javaskills.psplayer.swagger_codegen.model.SetPriceCo
  * Объект описывает текущие менеджерские решения, которые нужно совершить в этом тике. Если никаких решений предпринимать не нужно, передается пустой объект
  */
 @Schema(description = "Объект описывает текущие менеджерские решения, которые нужно совершить в этом тике. Если никаких решений предпринимать не нужно, передается пустой объект")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-22T18:41:52.626859+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-29T20:10:20.018547+03:00[Europe/Moscow]")
 public class CurrentTickRequest {
   @SerializedName("fireEmployeeCommands")
   private List<FireEmployeeCommand> fireEmployeeCommands = null;
@@ -179,10 +179,10 @@ public class CurrentTickRequest {
   }
 
    /**
-   * Команды на закупку товара у поставщика на склад.
+   * Команды на закупку товара у поставщика на склад. При покупке товара на склад вы оплачиваете услуги транспортной компании в размере 5000р. Поэтому старайтесь заказывать реже и по многу
    * @return buyStockCommands
   **/
-  @Schema(description = "Команды на закупку товара у поставщика на склад.")
+  @Schema(description = "Команды на закупку товара у поставщика на склад. При покупке товара на склад вы оплачиваете услуги транспортной компании в размере 5000р. Поэтому старайтесь заказывать реже и по многу")
   public List<BuyStockCommand> getBuyStockCommands() {
     return buyStockCommands;
   }

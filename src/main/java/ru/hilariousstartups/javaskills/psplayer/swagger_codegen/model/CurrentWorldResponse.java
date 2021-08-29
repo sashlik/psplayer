@@ -33,7 +33,7 @@ import ru.hilariousstartups.javaskills.psplayer.swagger_codegen.model.RackCell;
  * Объект описывает текущее состояние мира
  */
 @Schema(description = "Объект описывает текущее состояние мира")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-22T18:41:52.626859+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-29T20:10:20.018547+03:00[Europe/Moscow]")
 public class CurrentWorldResponse {
   @SerializedName("tickCount")
   private Integer tickCount = null;

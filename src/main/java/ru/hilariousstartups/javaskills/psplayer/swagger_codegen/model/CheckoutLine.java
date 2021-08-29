@@ -25,10 +25,10 @@ import java.io.IOException;
  * Кассовая линия. За ней может работать кассир, либо она может быть закрыта
  */
 @Schema(description = "Кассовая линия. За ней может работать кассир, либо она может быть закрыта")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-22T18:41:52.626859+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-29T20:10:20.018547+03:00[Europe/Moscow]")
 public class CheckoutLine {
-  @SerializedName("lineNumber")
-  private Integer lineNumber = null;
+  @SerializedName("id")
+  private Integer id = null;
 
   @SerializedName("employeeId")
   private Integer employeeId = null;
@@ -36,22 +36,22 @@ public class CheckoutLine {
   @SerializedName("customerId")
   private Integer customerId = null;
 
-  public CheckoutLine lineNumber(Integer lineNumber) {
-    this.lineNumber = lineNumber;
+  public CheckoutLine id(Integer id) {
+    this.id = id;
     return this;
   }
 
    /**
    * Номер кассовой линии
-   * @return lineNumber
+   * @return id
   **/
   @Schema(description = "Номер кассовой линии")
-  public Integer getLineNumber() {
-    return lineNumber;
+  public Integer getId() {
+    return id;
   }
 
-  public void setLineNumber(Integer lineNumber) {
-    this.lineNumber = lineNumber;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public CheckoutLine employeeId(Integer employeeId) {
@@ -100,14 +100,14 @@ public class CheckoutLine {
       return false;
     }
     CheckoutLine checkoutLine = (CheckoutLine) o;
-    return Objects.equals(this.lineNumber, checkoutLine.lineNumber) &&
+    return Objects.equals(this.id, checkoutLine.id) &&
         Objects.equals(this.employeeId, checkoutLine.employeeId) &&
         Objects.equals(this.customerId, checkoutLine.customerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lineNumber, employeeId, customerId);
+    return Objects.hash(id, employeeId, customerId);
   }
 
 
@@ -116,7 +116,7 @@ public class CheckoutLine {
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckoutLine {\n");
     
-    sb.append("    lineNumber: ").append(toIndentedString(lineNumber)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");
     sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("}");

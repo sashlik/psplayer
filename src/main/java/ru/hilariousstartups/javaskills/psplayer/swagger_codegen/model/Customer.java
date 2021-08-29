@@ -28,7 +28,7 @@ import ru.hilariousstartups.javaskills.psplayer.swagger_codegen.model.ProductInB
  * Покуптель. Вначале покупатель находится в торговом зале и формирует корзину покупок. По окончании проходит на кассы и расплачивается
  */
 @Schema(description = "Покуптель. Вначале покупатель находится в торговом зале и формирует корзину покупок. По окончании проходит на кассы и расплачивается")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-22T18:41:52.626859+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-29T20:10:20.018547+03:00[Europe/Moscow]")
 public class Customer {
   @SerializedName("id")
   private Integer id = null;

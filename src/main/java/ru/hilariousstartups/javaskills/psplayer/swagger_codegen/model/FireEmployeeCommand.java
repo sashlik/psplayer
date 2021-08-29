@@ -25,7 +25,7 @@ import java.io.IOException;
  * Команда на увольнение сотрудника.
  */
 @Schema(description = "Команда на увольнение сотрудника.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-22T18:41:52.626859+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-29T20:10:20.018547+03:00[Europe/Moscow]")
 public class FireEmployeeCommand {
   @SerializedName("employeeId")
   private Integer employeeId = null;

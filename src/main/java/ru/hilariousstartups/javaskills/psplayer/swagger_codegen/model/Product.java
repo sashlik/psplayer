@@ -25,7 +25,7 @@ import java.io.IOException;
  * Продукт (товар) находится либо на складе либо может быть выложен на полку в магазине. Один продукт может лежать только на одной полке. Продукт на склад можно докупить по закупочной цене. И выставить на полку по любой цене. Чем дороже цена, тем сложнее покупателям купить товар.
  */
 @Schema(description = "Продукт (товар) находится либо на складе либо может быть выложен на полку в магазине. Один продукт может лежать только на одной полке. Продукт на склад можно докупить по закупочной цене. И выставить на полку по любой цене. Чем дороже цена, тем сложнее покупателям купить товар.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-22T18:41:52.626859+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-29T20:10:20.018547+03:00[Europe/Moscow]")
 public class Product {
   @SerializedName("id")
   private Integer id = null;

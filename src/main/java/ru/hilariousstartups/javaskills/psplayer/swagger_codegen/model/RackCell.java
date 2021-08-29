@@ -25,7 +25,7 @@ import java.io.IOException;
  * Продуктовая полка. На полке может находиться товар только одного вида, либо она может быть пустой. Полка может хранить определенное максимальное количество товаров. Также полки разнятся по заметности для покупателя (от 1 - самая незаметная, до 5 - максимально на виду
  */
 @Schema(description = "Продуктовая полка. На полке может находиться товар только одного вида, либо она может быть пустой. Полка может хранить определенное максимальное количество товаров. Также полки разнятся по заметности для покупателя (от 1 - самая незаметная, до 5 - максимально на виду")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-22T18:41:52.626859+03:00[Europe/Moscow]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-29T20:10:20.018547+03:00[Europe/Moscow]")
 public class RackCell {
   @SerializedName("id")
   private Integer id = null;
