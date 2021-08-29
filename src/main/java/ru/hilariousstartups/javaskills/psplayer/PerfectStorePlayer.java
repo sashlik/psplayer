@@ -30,8 +30,8 @@ public class PerfectStorePlayer implements ApplicationListener<ApplicationReadyE
         apiClient.setBasePath(serverUrl);
 
         PerfectStoreEndpointApi psApiClient = new PerfectStoreEndpointApi(apiClient);
+        awaitServer(psApiClient);
         try {
-            int cnt = 0;
             CurrentWorldResponse currentWorldResponse = null;
             do {
                 if (currentWorldResponse == null) {
@@ -106,5 +106,26 @@ public class PerfectStorePlayer implements ApplicationListener<ApplicationReadyE
         }
 
     }
+
+    private void awaitServer(PerfectStoreEndpointApi psApiClient) {
+        int awaitTimes = 60;
+        int cnt = 0;
+        boolean serverReady = false;
+        do {
+            try {
+                cnt += 1;
+                psApiClient.loadWorld();
+                serverReady = true;
+
+            } catch (ApiException e) {
+                try {
+                    Thread.currentThread().sleep(1000L);
+                } catch (InterruptedException interruptedException) {
+                    e.printStackTrace();
+                }
+            }
+        } while (!serverReady && cnt < awaitTimes);
+    }
+
 
 }
