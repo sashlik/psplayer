@@ -30,10 +30,18 @@ public class PerfectStorePlayer implements ApplicationListener<ApplicationReadyE
         apiClient.setBasePath(serverUrl);
 
         PerfectStoreEndpointApi psApiClient = new PerfectStoreEndpointApi(apiClient);
+        log.info("Игрок готов. Подключаемся к серверу..");
         awaitServer(psApiClient);
+        log.info("Подключение к серверу успешно. Начинаем игру");
         try {
             CurrentWorldResponse currentWorldResponse = null;
+            int cnt = 0;
             do {
+                cnt += 1;
+                if (cnt % 120 == 0) {
+                    log.info("Пройден " + cnt + " тик");
+                }
+
                 if (currentWorldResponse == null) {
                     currentWorldResponse = psApiClient.loadWorld();
                 }
