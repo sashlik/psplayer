@@ -20,7 +20,7 @@ public class PerfectStorePlayer implements ApplicationListener<ApplicationReadyE
 
     private String serverUrl;
 
-    public PerfectStorePlayer(@Value("${perfectstore.url:http://localhost:8080}") String serverUrl) {
+    public PerfectStorePlayer(@Value("${rs.endpoint:http://localhost:8080}") String serverUrl) {
         this.serverUrl = serverUrl;
     }
 
