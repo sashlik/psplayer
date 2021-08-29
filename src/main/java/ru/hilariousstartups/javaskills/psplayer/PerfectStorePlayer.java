@@ -50,6 +50,8 @@ public class PerfectStorePlayer implements ApplicationListener<ApplicationReadyE
 
                  List<HireEmployeeCommand> hireEmployeeCommands = new ArrayList<>();
                 request.setHireEmployeeCommands(hireEmployeeCommands);
+                // Смотрим на каких кассах нет кассира (либо не был назначен, либо ушел с кассы отдыхать), нанимаем новых кассиров и ставим на эти кассы.
+                // Нанимаем самых опытных!
                 currentWorldResponse.getCheckoutLines().stream().filter(line -> line.getEmployeeId() == null).forEach(line -> {
                     HireEmployeeCommand hireEmployeeCommand = new HireEmployeeCommand();
                     hireEmployeeCommand.setCheckoutLineId(line.getId());
@@ -58,6 +60,7 @@ public class PerfectStorePlayer implements ApplicationListener<ApplicationReadyE
                 });
                 request.setHireEmployeeCommands(hireEmployeeCommands);
 
+                // готовимся закупать товар на склад и выставлять его на полки
                 ArrayList<BuyStockCommand> buyStockCommands = new ArrayList<>();
                 request.setBuyStockCommands(buyStockCommands);
 
@@ -66,6 +69,8 @@ public class PerfectStorePlayer implements ApplicationListener<ApplicationReadyE
 
                 List<Product> stock = currentWorldResponse.getStock();
                 List<RackCell> rackCells = currentWorldResponse.getRackCells();
+
+                // Обходим торговый зал и смотрим какие полки пустые. Выставляем на них товар.
                 currentWorldResponse.getRackCells().stream().filter(rack -> rack.getProductId() == null || rack.getProductQuantity().equals(0)).forEach(rack -> {
                     Product producttoPutOnRack = null;
                     if (rack.getProductId() == null) {
@@ -82,7 +87,7 @@ public class PerfectStorePlayer implements ApplicationListener<ApplicationReadyE
                         productQuantity = 0;
                     }
 
-
+                    // Вначале закупим товар на склад. Каждый ход закупать товар накладно, но ведь это тестовый игрок.
                     Integer orderQuantity = rack.getCapacity() - productQuantity;
                     if (producttoPutOnRack.getInStock() < orderQuantity) {
                         BuyStockCommand command = new BuyStockCommand();
@@ -91,6 +96,7 @@ public class PerfectStorePlayer implements ApplicationListener<ApplicationReadyE
                         buyStockCommands.add(command);
                     }
 
+                    // Далее разложим на полки. И сформируем цену. Накинем 10 рублей к оптовой цене
                     PutOnRackCellCommand command = new PutOnRackCellCommand();
                     command.setProductId(producttoPutOnRack.getId());
                     command.setRackCellId(rack.getId());
@@ -107,6 +113,7 @@ public class PerfectStorePlayer implements ApplicationListener<ApplicationReadyE
             }
             while (!currentWorldResponse.isGameOver());
 
+            // Если пришел Game Over, значит все время игры закончилось. Пора считать прибыль
             log.info("Я заработал " + (currentWorldResponse.getIncome() - currentWorldResponse.getSalaryCosts() - currentWorldResponse.getStockCosts()) + "руб.");
 
         } catch (ApiException e) {
